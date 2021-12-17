@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: samplecluster
+  name: sample
   labels:
-    app: samplecluster
+    app: sample
 
 spec:
   replicas: 2
