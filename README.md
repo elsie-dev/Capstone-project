@@ -1,9 +1,9 @@
 
 # Capstone Project
-In this task is a demonstration of all the skills learnt in my nanodegree program,from linting to creating pipelines,docker containers to using kubernetes clusters while working in the AWS console.
+In this task is a demonstration of all the skills learnt in the udacity nanodegree program,from linting to creating pipelines,docker containers to using kubernetes clusters while working in the AWS console.
 
 
-#Project steps
+# Project Guide
 
 ## Requirements
 - AWS account
