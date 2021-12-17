@@ -65,9 +65,9 @@ jobs:
     steps:
          - checkout
          - run: |
-            docker build -t elsiedev/sample:latest .
+            docker build -t elsiedev/flask-app:latest .
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKER_USER --password-stdin
-            docker push elsiedev/udacity:latest
+            docker push elsiedev/flask-app:latest
 
   # Creation of Cluster
   create-cluster:
@@ -99,7 +99,7 @@ jobs:
       - aws-eks/install-aws-iam-authenticator:
           release-tag: ''
       - aws-eks/create-cluster:
-          cluster-name: samplecluster
+          cluster-name: sample
           node-type: t3.medium
 
    # Test the Cluster
@@ -138,7 +138,7 @@ jobs:
       - kubernetes/create-or-update-resource:
           get-rollout-status: true
           resource-file-path: deployments/nginx-deployment.yaml
-          resource-name: deployments/samplecluster
+          resource-name: deployments/sample
 
       - kubernetes/create-or-update-resource:
           resource-file-path: deployments/app-service.yaml
@@ -162,7 +162,7 @@ jobs:
           aws-region: << parameters.aws-region >>
       - kubernetes/delete-resource:
           resource-types: "deployment,service"
-          label-selector: "app=sample-cluster"
+          label-selector: "app=sample"
           wait: true
       - run:
           name: Check on pod status
@@ -189,7 +189,7 @@ jobs:
             $SUDO mv eksctl_download/eksctl /usr/local/bin/
             rmdir eksctl_download
       - aws-eks/delete-cluster:
-          cluster-name: samplecluster
+          cluster-name: sample
           aws-region: $AWS_DEFAULT_REGION
           wait: true
 
@@ -212,16 +212,16 @@ workflows:
           requires:
             - build
       - test-cluster:
-          cluster-name: samplecluster
+          cluster-name: sample
           requires:
             - create-cluster
       - create-deployment:
-          cluster-name: samplecluster
+          cluster-name: sample
           requires:
             - test-cluster
 
       - undeploy-application:
-          cluster-name: samplecluster
+          cluster-name: sample
           aws-region: $AWS_DEFAULT_REGION
           requires:
             - create-deployment

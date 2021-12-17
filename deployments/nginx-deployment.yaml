@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samplecluster
+  labels:
+    app: samplecluster
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate
+
+    progressDeadlineSeconds: 600
+
+  template:
+    metadata:
+      labels:
+        app: sample
+    spec:
+      containers:
+        - image: elsiedev/flask-app:latest
+          imagePullPolicy: Always
+          name: sample
+          ports:
+            - containerPort: 80
