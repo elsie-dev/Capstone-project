@@ -220,15 +220,15 @@ workflows:
           requires:
             - test-cluster
 
-      - undeploy-application:
-          cluster-name: sample
-          aws-region: $AWS_DEFAULT_REGION
-          requires:
-            - create-deployment
+#       - undeploy-application:
+#           cluster-name: sample
+#           aws-region: $AWS_DEFAULT_REGION
+#           requires:
+#             - create-deployment
 
-      - delete-cluster:
-          requires:
-            - undeploy-application
+#       - delete-cluster:
+#           requires:
+#             - undeploy-application
 
 
 
