@@ -77,7 +77,7 @@ jobs:
         description: |
           Name of the EKS cluster
         type: string
-        default: samplecluster
+        default: sample
     steps:
       - run:
           name: Install the eksctl tool
