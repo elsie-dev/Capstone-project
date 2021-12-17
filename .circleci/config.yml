@@ -101,12 +101,13 @@ jobs:
       - aws-eks/create-cluster:
           cluster-name: sample
           node-type: t3.medium
+      
 
    # Test the Cluster
   test-cluster:
     executor: aws-eks/python3
     parameters:
-      cluster-name:
+      cluster-name: 
         description: |
           Name of the EKS cluster
         type: string
