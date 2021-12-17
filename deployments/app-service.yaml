@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: testapp
+  name: testa
 
 spec:
   type: LoadBalancer
   selector:
-    app: testapp
+    app: testa
   ports:
     - port: 80
       targetPort: 80
