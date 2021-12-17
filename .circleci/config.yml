@@ -226,9 +226,5 @@ workflows:
 #             - create-deployment
 
 
-#       - delete-cluster:
-#           requires:
-#             - undeploy-application
-
 
 
