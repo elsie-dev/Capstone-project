@@ -2,7 +2,7 @@
 # Capstone Project
 [![elsie-dev](https://circleci.com/gh/elsie-dev/TestApp.svg?style=svg)](https://app.circleci.com/pipelines/github/elsie-dev/TestApp)
 
-In this task is a demonstration of all the skills learnt in the udacity nanodegree program,from linting to creating pipelines,docker containers to using kubernetes clusters while working in the AWS console.
+Demonstration of Circleci Lints,using docker container and kubernetes clusters in the AWS console.
 
 
 # Project Guide
